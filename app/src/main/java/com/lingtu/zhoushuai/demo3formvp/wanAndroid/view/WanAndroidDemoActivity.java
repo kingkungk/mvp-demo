@@ -11,12 +11,13 @@ import com.lingtu.zhoushuai.demo3formvp.R;
 import com.lingtu.zhoushuai.demo3formvp.wanAndroid.contract.WanAndroidContract;
 import com.lingtu.zhoushuai.demo3formvp.wanAndroid.model.bean.ArticleBean;
 import com.lingtu.zhoushuai.demo3formvp.wanAndroid.model.bean.BannerBean;
-import com.lingtu.zhoushuai.demo3formvp.wanAndroid.presenter.BannerPresenter;
+
+import com.lingtu.zhoushuai.demo3formvp.wanAndroid.presenter.WanAndroidDemoPresenter;
 import com.lingtu.zhoushuai.demo3formvp.wanAndroid.view.base.BaseActivity;
 
 import java.util.List;
 
-public class WanAndroidDemoActivity extends BaseActivity<BannerPresenter> implements WanAndroidContract.View {
+public class WanAndroidDemoActivity extends BaseActivity<WanAndroidDemoPresenter> implements WanAndroidContract.View {
 
     private Button button1;
     private TextView textView1;
@@ -54,19 +55,7 @@ public class WanAndroidDemoActivity extends BaseActivity<BannerPresenter> implem
 
     @Override
     public void initView() {
-        presenter = new BannerPresenter();
-    }
-
-    @Override
-    public void showLoading() {
-        //显示加载框
-        Toast.makeText(this, "显示加载框", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void hideLoading() {
-        //消失加载框
-        Toast.makeText(this, "消失加载框", Toast.LENGTH_SHORT).show();
+        presenter = new WanAndroidDemoPresenter();
     }
 
     /*
@@ -76,7 +65,6 @@ public class WanAndroidDemoActivity extends BaseActivity<BannerPresenter> implem
     public void onBannerSuccess(List<BannerBean> beans) {
         textView1.setText(beans.get(0).title);
     }
-
     /*
      * 获取banner失败
      * */
@@ -92,7 +80,6 @@ public class WanAndroidDemoActivity extends BaseActivity<BannerPresenter> implem
     public void onArticleSuccess(ArticleBean bean) {
         textView2.setText(bean.datas.get(0).title);
     }
-
     /*
      * 获取article失败
      * */

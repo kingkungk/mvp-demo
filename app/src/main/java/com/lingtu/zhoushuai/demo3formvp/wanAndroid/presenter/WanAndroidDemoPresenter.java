@@ -1,7 +1,8 @@
 package com.lingtu.zhoushuai.demo3formvp.wanAndroid.presenter;
 
 import com.lingtu.zhoushuai.demo3formvp.wanAndroid.contract.WanAndroidContract;
-import com.lingtu.zhoushuai.demo3formvp.wanAndroid.model.BannerModel;
+
+import com.lingtu.zhoushuai.demo3formvp.wanAndroid.model.WanAndroidDemoModel;
 import com.lingtu.zhoushuai.demo3formvp.wanAndroid.model.bean.ArticleBean;
 import com.lingtu.zhoushuai.demo3formvp.wanAndroid.model.bean.BannerBean;
 
@@ -11,13 +12,13 @@ import com.lingtu.zhoushuai.demo3formvp.wanAndroid.presenter.base.BasePresenter;
 
 import java.util.List;
 
-public class BannerPresenter extends BasePresenter<WanAndroidContract.View> implements WanAndroidContract.Presenter {
+public class WanAndroidDemoPresenter extends BasePresenter<WanAndroidContract.View> implements WanAndroidContract.Presenter {
 
     //持有model对象
-    private BannerModel bannerModel;
+    private WanAndroidDemoModel wanAndroidDemoModel;
 
-    public BannerPresenter() {
-        bannerModel = new BannerModel(this);
+    public WanAndroidDemoPresenter() {
+        wanAndroidDemoModel = new WanAndroidDemoModel(this);
     }
 
     @Override
@@ -25,7 +26,7 @@ public class BannerPresenter extends BasePresenter<WanAndroidContract.View> impl
 
         mView.showLoading();
 
-        bannerModel.getBannerInModel(new BannerInModelCallBack() {
+        wanAndroidDemoModel.getBannerInModel(new BannerInModelCallBack() {
             @Override
             public void onBannerInModelSuccess(List<BannerBean> bannerBeans) {
                 mView.onBannerSuccess(bannerBeans);
@@ -42,7 +43,7 @@ public class BannerPresenter extends BasePresenter<WanAndroidContract.View> impl
     public void getArticle(int curPage) {
         mView.showLoading();
 
-        bannerModel.getArticleListInModel(curPage, new ArticleInModelCallBack() {
+        wanAndroidDemoModel.getArticleListInModel(curPage, new ArticleInModelCallBack() {
             @Override
             public void onArticleInModelSuccess(ArticleBean articleListBean) {
                 mView.onArticleSuccess(articleListBean);

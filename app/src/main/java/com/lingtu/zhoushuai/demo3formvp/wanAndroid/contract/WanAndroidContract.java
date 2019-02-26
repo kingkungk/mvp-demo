@@ -13,18 +13,11 @@ public interface WanAndroidContract {
 
     interface View extends BaseContract.View {
 
-        //BaseView里面就有的方法
-        @Override
-        void hideLoading();
-
-        @Override
-        void showLoading();
-
-        //属于BannerContract.View的方法，用于回调presenter回来的banner数据到view层
+        //属于WanAndroidContract.View的方法，用于回调presenter回来的banner数据到view层
         void onBannerSuccess(List<BannerBean> beans);
         void onBannerFail(String errorMsg);
 
-        //属于BannerContract.View的方法，用于回调presenter回来的article数据到view层
+        //属于WanAndroidContract.View的方法，用于回调presenter回来的article数据到view层
         void onArticleSuccess(ArticleBean bean);
         void onArticleFail(String errorMsg);
     }

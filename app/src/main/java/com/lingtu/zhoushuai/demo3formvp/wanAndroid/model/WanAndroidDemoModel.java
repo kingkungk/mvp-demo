@@ -17,11 +17,11 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class BannerModel {
+public class WanAndroidDemoModel {
 
     private BasePresenter presenter;
 
-    public BannerModel(BasePresenter presenter) {
+    public WanAndroidDemoModel(BasePresenter presenter) {
         this.presenter = presenter;
     }
 
